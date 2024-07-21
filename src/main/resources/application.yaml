@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cart
+
+  cassandra:
+    schema-action: RECREATE
+    request:
+      timeout: 10s
+    connection:
+      connect-timeout: 10s
+      init-query-timeout: 10s
+    local-datacenter: datacenter1
+    keyspace-name: spring_cassandra
+    create-keyspace: true

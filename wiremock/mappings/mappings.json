@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/logideli/api/v1/ship"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
