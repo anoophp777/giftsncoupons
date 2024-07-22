@@ -1,14 +1,14 @@
 package com.giftsncoupons.cart.application.services;
 
-import com.giftsncoupons.cart.infrastructure.promotion.models.Promotion;
 import com.giftsncoupons.cart.infrastructure.promotion.PromotionRepository;
+import com.giftsncoupons.cart.infrastructure.promotion.models.Promotion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PromotionService {
 
-    private PromotionRepository promotionRepository;
+    private final PromotionRepository promotionRepository;
 
     @Autowired
     public PromotionService(PromotionRepository promotionRepository) {
@@ -19,7 +19,7 @@ public class PromotionService {
         return promotionRepository.findById(couponCode).orElseThrow();
     }
 
-    public Promotion savePromotion(Promotion promotion){
+    public Promotion savePromotion(Promotion promotion) {
         return promotionRepository.save(promotion);
     }
 }

@@ -13,8 +13,8 @@ import java.net.URI;
 @Component
 public class LogiDeliClient {
 
-    private RestTemplate restTemplate;
-    private URI url;
+    private final RestTemplate restTemplate;
+    private final URI url;
 
     public LogiDeliClient() {
         restTemplate = new RestTemplate();

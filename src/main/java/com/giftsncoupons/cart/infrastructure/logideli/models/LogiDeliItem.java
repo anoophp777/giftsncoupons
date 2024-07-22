@@ -1,6 +1,5 @@
 package com.giftsncoupons.cart.infrastructure.logideli.models;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data

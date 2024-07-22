@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.controller;
+package com.giftsncoupons.cart.controller.admin;
 
 import com.giftsncoupons.cart.application.services.PromotionService;
 import com.giftsncoupons.cart.infrastructure.promotion.models.Promotion;
@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminController {
 
-    private PromotionService promotionService;
-    private RedisTemplate<String, String> template;
+    private final PromotionService promotionService;
 
     @Autowired
-    public AdminController(PromotionService promotionService, RedisTemplate<String, String> template) {
+    public AdminController(PromotionService promotionService) {
         this.promotionService = promotionService;
-        this.template = template;
     }
 
     @PostMapping("/promos")

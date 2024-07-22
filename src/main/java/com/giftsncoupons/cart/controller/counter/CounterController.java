@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.controller;
+package com.giftsncoupons.cart.controller.counter;
 
 import com.giftsncoupons.cart.application.services.CounterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/counter")
 public class CounterController {
 
-    private CounterService counterService;
+    private final CounterService counterService;
 
     @Autowired
     public CounterController(CounterService counterService) {

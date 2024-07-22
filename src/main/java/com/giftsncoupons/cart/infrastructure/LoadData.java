@@ -2,10 +2,10 @@ package com.giftsncoupons.cart.infrastructure;
 
 import com.giftsncoupons.cart.infrastructure.cart.CartRepository;
 import com.giftsncoupons.cart.infrastructure.cart.models.Cart;
-import com.giftsncoupons.cart.infrastructure.promotion.models.FreeGift;
 import com.giftsncoupons.cart.infrastructure.cart.models.Item;
-import com.giftsncoupons.cart.infrastructure.promotion.models.Promotion;
 import com.giftsncoupons.cart.infrastructure.promotion.PromotionRepository;
+import com.giftsncoupons.cart.infrastructure.promotion.models.FreeGift;
+import com.giftsncoupons.cart.infrastructure.promotion.models.Promotion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -56,6 +56,8 @@ public class LoadData {
                         .endDate(date.plusDays(5).atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli())
                         .build();
                 promotionRepository.save(thankyou10);
+
+                System.out.println(promotionRepository.findById("THANKYOU10"));
 
                 redisAtomicInteger.set(5);
             }

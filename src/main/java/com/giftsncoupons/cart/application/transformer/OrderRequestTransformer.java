@@ -11,7 +11,9 @@ import java.util.function.BiFunction;
 public class OrderRequestTransformer implements BiFunction<LogiDeliResponse, CartModel, Order> {
     @Override
     public Order apply(LogiDeliResponse logiDeliResponse, CartModel cart) {
-        return Order.builder().userId(cart.getUserId()).deliveryDate(logiDeliResponse.getDeliveryDate())
+        return Order.builder()
+                .userId(cart.getUserId())
+                .deliveryDate(logiDeliResponse.getDeliveryDate())
                 .shippingCost(logiDeliResponse.getShippingCost())
                 .confirmationId(logiDeliResponse.getConfirmationId()).build();
     }

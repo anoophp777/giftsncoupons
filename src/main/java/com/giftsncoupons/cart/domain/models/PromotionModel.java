@@ -1,6 +1,5 @@
 package com.giftsncoupons.cart.domain.models;
 
-import com.giftsncoupons.cart.infrastructure.promotion.models.FreeGift;
 import lombok.Builder;
 import lombok.Data;
 

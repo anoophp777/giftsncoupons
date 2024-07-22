@@ -4,8 +4,6 @@ import com.giftsncoupons.cart.domain.models.CartModel;
 import com.giftsncoupons.cart.domain.models.FreeGiftModel;
 import com.giftsncoupons.cart.domain.models.ItemModel;
 import com.giftsncoupons.cart.domain.models.PromotionModel;
-import com.giftsncoupons.cart.infrastructure.cart.models.Cart;
-import com.giftsncoupons.cart.infrastructure.cart.models.Item;
 import com.giftsncoupons.cart.infrastructure.logideli.models.LogiDeliItem;
 import com.giftsncoupons.cart.infrastructure.logideli.models.LogiDeliRequest;
 import org.springframework.stereotype.Component;
@@ -17,7 +15,7 @@ import java.util.List;
 @Component
 public class CheckoutDomainService {
 
-    public CartModel processPromotion(CartModel cartModel, PromotionModel thankyou10Promotion) {
+    public CartModel addFreeGiftPromotion(CartModel cartModel, PromotionModel thankyou10Promotion) {
 
         Instant currentInstant = Instant.now();
         Instant promotionStartDate = Instant.ofEpochMilli(thankyou10Promotion.getStartDate());
@@ -35,10 +33,10 @@ public class CheckoutDomainService {
         return cartModel;
     }
 
-    public LogiDeliRequest convertToLogiDeliRequest(Cart cart) {
+    public LogiDeliRequest convertToLogiDeliRequest(CartModel cart) {
 
         List<LogiDeliItem> logiDeliItems = new ArrayList<>();
-        for (Item item : cart.getItems()) {
+        for (ItemModel item : cart.getItems()) {
             LogiDeliItem logiDeliItem = new LogiDeliItem();
             logiDeliItem.setItemId(item.getItemId());
             logiDeliItem.setQuantity(item.getQuantity());

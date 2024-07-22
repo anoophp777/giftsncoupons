@@ -12,3 +12,8 @@ spring:
     local-datacenter: datacenter1
     keyspace-name: spring_cassandra
     create-keyspace: true
+
+giftsncoupons:
+  promotion:
+    freegift:
+      enable: true
