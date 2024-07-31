@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.application.services;
+package com.giftsncoupons.cart.application.services.counter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.support.atomic.RedisAtomicInteger;

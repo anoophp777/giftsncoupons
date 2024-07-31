@@ -15,18 +15,22 @@ import java.util.List;
 @Component
 public class CheckoutDomainService {
 
-    public CartModel addFreeGiftPromotion(CartModel cartModel, PromotionModel thankyou10Promotion) {
+    public CartModel addFreeGiftPromotion(CartModel cartModel, PromotionModel freeGiftPromotion) {
 
         Instant currentInstant = Instant.now();
-        Instant promotionStartDate = Instant.ofEpochMilli(thankyou10Promotion.getStartDate());
-        Instant promotionEndDate = Instant.ofEpochMilli(thankyou10Promotion.getEndDate());
+        Instant promotionStartDate = Instant.ofEpochMilli(freeGiftPromotion.getStartDate());
+        Instant promotionEndDate = Instant.ofEpochMilli(freeGiftPromotion.getEndDate());
 
         if (promotionStartDate.isBefore(currentInstant) && promotionEndDate.isAfter(currentInstant)) {
-            for (FreeGiftModel freeGift : thankyou10Promotion.getFreeGift()) {
+            for (FreeGiftModel freeGift : freeGiftPromotion.getFreeGift()) {
                 Instant freeGiftStartDate = Instant.ofEpochMilli(freeGift.getStartDate());
                 Instant freeGiftEndDate = Instant.ofEpochMilli(freeGift.getEndDate());
                 if (freeGiftStartDate.isBefore(currentInstant) && freeGiftEndDate.isAfter(currentInstant)) {
-                    cartModel.getItems().add(ItemModel.builder().itemId(freeGift.getGiftId()).quantity(freeGift.getQuantity()).price(0).build());
+                    cartModel.getItems().add(ItemModel.builder().itemId(freeGift.getGiftId())
+                            .quantity(freeGift.getQuantity())
+                                    .name(freeGift.getName())
+                            .price(0)
+                            .build());
                 }
             }
         }

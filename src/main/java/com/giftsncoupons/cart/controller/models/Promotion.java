@@ -1,18 +1,14 @@
-package com.giftsncoupons.cart.infrastructure.promotion.models;
+package com.giftsncoupons.cart.controller.models;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
 
 import java.util.List;
 
 @Data
-@RedisHash
 @Builder
 public class Promotion {
 
-    @Id
     private String couponCode;
     private List<FreeGift> freeGifts;
     private long startDate;

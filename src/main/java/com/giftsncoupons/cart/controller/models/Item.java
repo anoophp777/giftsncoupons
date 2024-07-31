@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.controller.cart.models;
+package com.giftsncoupons.cart.controller.models;
 
 import lombok.Builder;
 import lombok.Data;

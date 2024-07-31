@@ -1,7 +1,7 @@
-package com.giftsncoupons.cart.application.transformer;
+package com.giftsncoupons.cart.application.services.transformer;
 
-import com.giftsncoupons.cart.controller.cart.models.Cart;
-import com.giftsncoupons.cart.controller.cart.models.Item;
+import com.giftsncoupons.cart.controller.models.Cart;
+import com.giftsncoupons.cart.controller.models.Item;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

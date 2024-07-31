@@ -1,6 +1,6 @@
-package com.giftsncoupons.cart.controller.counter;
+package com.giftsncoupons.cart.controller.admin;
 
-import com.giftsncoupons.cart.application.services.CounterService;
+import com.giftsncoupons.cart.application.services.counter.CounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

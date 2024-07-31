@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.infrastructure;
+package com.giftsncoupons.cart;
 
 import com.giftsncoupons.cart.infrastructure.cart.CartRepository;
 import com.giftsncoupons.cart.infrastructure.cart.models.Cart;
@@ -36,30 +36,35 @@ public class LoadData {
             @Override
             public void run(ApplicationArguments args) throws Exception {
 
-                Item pressureCooker = Item.builder().itemId("1").name("PressureCooker").price(1500).build();
-                Item blender = Item.builder().itemId("1").name("Blender").price(1000).build();
-                Item coffeePot = Item.builder().itemId("1").name("CoffeePot").price(500).build();
+                promotionRepository.deleteAll();
 
-                Cart cart1 = Cart.builder().userId("1234").items(new ArrayList<>(List.of(pressureCooker))).totalPrice(1999).build();
-                Cart cart2 = Cart.builder().userId("2345").items(new ArrayList<>(List.of(pressureCooker))).totalPrice(1000).build();
+                Item pressureCooker = Item.builder().itemId("1").name("PressureCooker").price(2000).build();
+                Item blender = Item.builder().itemId("2").name("Blender").price(3000).build();
+                Item coffeePot = Item.builder().itemId("3").name("CoffeePot").price(500).build();
+
+                Cart cart1 = Cart.builder().userId("1234").items(new ArrayList<>(List.of(coffeePot))).totalPrice(500).build();
+                Cart cart2 = Cart.builder().userId("2345").items(new ArrayList<>(List.of(blender))).totalPrice(3000).build();
                 Cart cart3 = Cart.builder().userId("3456").items(new ArrayList<>(List.of(pressureCooker))).totalPrice(2000).build();
                 cartRepository.saveAll(List.of(cart1, cart2, cart3));
 
                 LocalDate date = LocalDate.now();
 
-                FreeGift freeGift = FreeGift.builder().giftId("1").quantity(1)
+                FreeGift freeGift = FreeGift.builder().giftId("3").name("CoffeePot").quantity(1)
                         .startDate(date.minusDays(1).atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli())
                         .endDate(date.plusDays(1).atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli())
                         .build();
-                Promotion thankyou10 = Promotion.builder().couponCode("THANKYOU10").freeGift(List.of(freeGift))
+                Promotion thankyou7 = Promotion.builder().couponCode("THANKYOU7")
+                        .freeGifts(List.of(freeGift))
                         .startDate(date.minusDays(5).atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli())
                         .endDate(date.plusDays(5).atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli())
                         .build();
-                promotionRepository.save(thankyou10);
+                promotionRepository.save(thankyou7);
 
-                System.out.println(promotionRepository.findById("THANKYOU10"));
+                System.out.println(promotionRepository.findById("THANKYOU7"));
 
-                redisAtomicInteger.set(5);
+                System.out.println(promotionRepository.findAll());
+
+                redisAtomicInteger.set(1);
             }
         };
     }

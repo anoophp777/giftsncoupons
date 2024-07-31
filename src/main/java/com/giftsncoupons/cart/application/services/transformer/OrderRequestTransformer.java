@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.application.transformer;
+package com.giftsncoupons.cart.application.services.transformer;
 
 import com.giftsncoupons.cart.domain.models.CartModel;
 import com.giftsncoupons.cart.infrastructure.logideli.models.LogiDeliResponse;

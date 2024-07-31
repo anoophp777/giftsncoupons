@@ -1,4 +1,4 @@
-package com.giftsncoupons.cart.controller.checkout.models;
+package com.giftsncoupons.cart.controller.models;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,4 +11,5 @@ public class CheckoutResponse {
     private double shippingCost;
     private long deliveryDate;
     private String confirmationId;
+    private Cart cart;
 }

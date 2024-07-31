@@ -8,6 +8,7 @@ import lombok.Data;
 public class FreeGiftModel {
 
     private String giftId;
+    private String name;
     private int quantity;
     private long startDate;
     private long endDate;

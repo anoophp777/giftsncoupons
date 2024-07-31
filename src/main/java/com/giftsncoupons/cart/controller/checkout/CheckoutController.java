@@ -1,7 +1,7 @@
 package com.giftsncoupons.cart.controller.checkout;
 
-import com.giftsncoupons.cart.application.services.CheckoutService;
-import com.giftsncoupons.cart.controller.checkout.models.CheckoutResponse;
+import com.giftsncoupons.cart.application.services.checkout.CheckoutServiceImpl;
+import com.giftsncoupons.cart.controller.models.CheckoutResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/checkout")
 public class CheckoutController {
 
-    private final CheckoutService checkoutService;
+    private final CheckoutServiceImpl checkoutService;
 
     @Autowired
-    public CheckoutController(CheckoutService checkoutService) {
+    public CheckoutController(CheckoutServiceImpl checkoutService) {
         this.checkoutService = checkoutService;
     }
 

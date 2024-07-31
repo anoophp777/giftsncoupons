@@ -1,9 +1,9 @@
-package com.giftsncoupons.cart.application.transformer;
+package com.giftsncoupons.cart.application.services.transformer;
 
+import com.giftsncoupons.cart.controller.models.FreeGift;
+import com.giftsncoupons.cart.controller.models.Promotion;
 import com.giftsncoupons.cart.domain.models.FreeGiftModel;
 import com.giftsncoupons.cart.domain.models.PromotionModel;
-import com.giftsncoupons.cart.infrastructure.promotion.models.FreeGift;
-import com.giftsncoupons.cart.infrastructure.promotion.models.Promotion;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class PromotionTransformer implements Function<Promotion, PromotionModel>
                 .couponCode(promotion.getCouponCode())
                 .startDate(promotion.getStartDate())
                 .endDate(promotion.getEndDate())
-                .freeGift(convertToFreeGiftModel(promotion.getFreeGift()))
+                .freeGift(convertToFreeGiftModel(promotion.getFreeGifts()))
                 .build();
     }
 
@@ -27,6 +27,7 @@ public class PromotionTransformer implements Function<Promotion, PromotionModel>
         for (FreeGift freeGift : freeGifts) {
             freeGiftModels.add(FreeGiftModel.builder()
                     .giftId(freeGift.getGiftId())
+                    .name(freeGift.getName())
                     .quantity(freeGift.getQuantity())
                     .startDate(freeGift.getStartDate())
                     .endDate(freeGift.getEndDate()).build());

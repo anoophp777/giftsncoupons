@@ -1,7 +1,7 @@
 package com.giftsncoupons.cart.controller.cart;
 
-import com.giftsncoupons.cart.application.services.CartService;
-import com.giftsncoupons.cart.controller.cart.models.Cart;
+import com.giftsncoupons.cart.application.services.cart.CartServiceImpl;
+import com.giftsncoupons.cart.controller.models.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import java.util.List;
 @RequestMapping("/cart")
 public class CartController {
 
-    private final CartService cartService;
+    private final CartServiceImpl cartService;
 
     @Autowired
-    public CartController(CartService cartService) {
+    public CartController(CartServiceImpl cartService) {
         this.cartService = cartService;
     }
 
